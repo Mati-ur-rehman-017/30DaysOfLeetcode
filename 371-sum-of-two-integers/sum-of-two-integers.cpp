@@ -1,6 +1,13 @@
 class Solution {
 public:
     int getSum(int a, int b) {
-        return b==0?a:getSum(a^b,((unsigned int)(a&b))<<1);
+        int s=a^b;
+        int c=a&b;
+        while(c!=0){
+            int carry=c<<1;
+            c=s&carry;
+            s=s^(carry);
+        }
+        return s;
     }
 };
