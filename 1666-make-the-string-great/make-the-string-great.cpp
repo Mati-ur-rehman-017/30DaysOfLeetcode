@@ -2,15 +2,15 @@ class Solution {
 public:
     string makeGood(string s) {
         stack<char>st;
-        for(int i=0;i<s.length();i++){
+        for(auto&i:s){
             if(!st.empty()){
-                if(abs(s[i]-st.top())==32){
+                if(abs(i-st.top())==32){
                     st.pop();
                 }else{
-                    st.push(s[i]);
+                    st.push(i);
                 }
             }else{
-                st.push(s[i]);
+                st.push(i);
             }
         }
         string res;
